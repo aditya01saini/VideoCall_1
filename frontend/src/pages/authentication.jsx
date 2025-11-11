@@ -12,8 +12,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { AuthContext } from '../contexts/AuthContext';
-// import { Snackbar } from '@mui/material';
+import { AuthContext } from '../contexts/AuthContext';
+import { Snackbar } from '@mui/material';
 
 
 
@@ -37,33 +37,33 @@ export default function Authentication() {
     const [open, setOpen] = React.useState(false)
 
 
-    // const { handleRegister, handleLogin } = React.useContext(AuthContext);
+    const { handleRegister, handleLogin } = React.useContext(AuthContext);
 
-    // let handleAuth = async () => {
-    //     try {
-    //         if (formState === 0) {
+    let handleAuth = async () => {
+        try {
+            if (formState === 0) {
 
-    //             let result = await handleLogin(username, password)
+                let result = await handleLogin(username, password)
 
 
-    //         }
-    //         if (formState === 1) {
-    //             let result = await handleRegister(name, username, password);
-    //             console.log(result);
-    //             setUsername("");
-    //             setMessage(result);
-    //             setOpen(true);
-    //             setError("")
-    //             setFormState(0)
-    //             setPassword("")
-    //         }
-    //     } catch (err) {
+            }
+            if (formState === 1) {
+                let result = await handleRegister(name, username, password);
+                console.log(result);
+                setUsername("");
+                setMessage(result);
+                setOpen(true);
+                setError("")
+                setFormState(0)
+                setPassword("")
+            }
+        } catch (err) {
 
-    //         console.log(err);
-    //         let message = (err.response.data.message);
-    //         setError(message);
-    //     }
-    // }
+            console.log(err);
+            let message = (err.response.data.message);
+            setError(message);
+        }
+    }
 
 
     return (
@@ -153,22 +153,22 @@ export default function Authentication() {
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
-                                
+                                onClick={handleAuth}
                             >
-                                
+                                {formState === 0 ? "Login " : "Register"}
                             </Button>
 
                         </Box>
                     </Box>
                 </Grid>
             </Grid>
-{/* 
+
             <Snackbar
 
                 open={open}
                 autoHideDuration={4000}
                 message={message}
-            /> */}  
+            />
 
         </ThemeProvider>
     );
