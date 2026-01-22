@@ -17,7 +17,6 @@ https://videocall-1-frontend.onrender.com
 - 🔗 Unique Room / Call Link
 - 🎙️ Microphone & Camera Access
 - 🔄 Smooth Connection Handling
-- 📱 Responsive Design (Mobile + Desktop)
 - ⚡ Low Latency Communication
 
 ---
